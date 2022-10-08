@@ -1,23 +1,21 @@
-:set nocompatible
-:set showmatch
-:set ignorecase
-:set mouse=v
-:set hlsearch
-:set incsearch
-:set tabstop=4
-:set softtabstop=4
-:set shiftwidth=4
-:set autoindent
 :set number
+:set showmatch " show matching
+:set ignorecase " case insensitive
+:set mouse=v  " middle click paste with
+:set hlsearch " highlight search
+:set incsearch " incremental search
+:set relativenumber
+:set autoindent
+:set tabstop=4
+:set shiftwidth=4
+:set smarttab
+:set softtabstop=4
 :set mouse=a
-:set clipboard=unnamedplus
-:set cursorline
-:set ttyfast
-:set splitright
-
 syntax on
+:set cursorline 
+:set clipboard=unnamedplus
+
 filetype plugin indent on
-filetype indent on
 
 call plug#begin()
  Plug 'https://github.com/dracula/vim'
