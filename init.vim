@@ -28,17 +28,26 @@ call plug#begin()
  Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
  Plug 'itchyny/lightline.vim'
  Plug 'navarasu/onedark.nvim'
+ Plug 'https://github.com/morhetz/gruvbox'
 call plug#end()
 
 let g:onedark_config = {
-    \ 'style': 'darker',
+    \ 'style': 'deep',
+	\ 'ending_tildes': v:true,
+	\ 'diagnostics': {
+		\ 'darker': v:true,
+		\ 'background': v:true
+	\ }
 \}
 
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_bold = '1' 
+
 let g:lightline = {
-	\ 'colorscheme' : 'one'	
+	\ 'colorscheme' : 'gruvbox'	
 	\}
 
-colorscheme onedark 
+colorscheme gruvbox 
 
 set termguicolors
 " Exit terminal
@@ -46,6 +55,7 @@ tnoremap <Esc> <C-\><C-n>
 
 nnoremap <F2> :call ChooseTerm("term-slider", 1) <CR>
 nnoremap <C-q> :exe "qa" <CR>
+nnoremap <C-s> :exe "w" <CR>
 
 function! ChooseTerm(termname, slider)
 	let pane = bufwinnr(a:termname)
@@ -122,6 +132,8 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
@@ -190,8 +202,8 @@ endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+nmap <silent> <C-x> <Plug>(coc-range-select)
+xmap <silent> <C-x> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
@@ -214,8 +226,6 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
