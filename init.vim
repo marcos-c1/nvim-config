@@ -25,7 +25,6 @@ call plug#begin()
  Plug 'https://github.com/scrooloose/nerdtree'
  Plug 'https://github.com/preservim/nerdcommenter'
  Plug 'https://github.com/mhinz/vim-startify'
- Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
  Plug 'itchyny/lightline.vim'
  Plug 'navarasu/onedark.nvim'
  Plug 'https://github.com/morhetz/gruvbox'
@@ -40,7 +39,9 @@ let g:onedark_config = {
 	\ }
 \}
 
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='medium'
+
 let g:gruvbox_bold = '1' 
 
 let g:lightline = {
@@ -149,7 +150,7 @@ function! ShowDocumentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent! call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
