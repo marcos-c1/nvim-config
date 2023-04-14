@@ -57,6 +57,7 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <F2> :call ChooseTerm("term-slider", 1) <CR>
 nnoremap <C-q> :exe "qa" <CR>
 nnoremap <C-s> :exe "w" <CR>
+nnoremap <C-x> :make <CR>
 
 function! ChooseTerm(termname, slider)
 	let pane = bufwinnr(a:termname)
