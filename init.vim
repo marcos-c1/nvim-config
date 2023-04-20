@@ -26,6 +26,7 @@ call plug#begin()
  Plug 'https://github.com/preservim/nerdcommenter'
  Plug 'https://github.com/mhinz/vim-startify'
  Plug 'itchyny/lightline.vim'
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'navarasu/onedark.nvim'
  Plug 'https://github.com/morhetz/gruvbox'
 call plug#end()
