@@ -4,7 +4,6 @@
 :set mouse=v  " middle click paste with
 :set hlsearch " highlight search
 :set incsearch " incremental search
-:set relativenumber
 :set autoindent
 :set tabstop=4
 :set shiftwidth=4
