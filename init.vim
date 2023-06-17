@@ -16,6 +16,7 @@ syntax on
 
 filetype plugin indent on
 
+
 call plug#begin()
  Plug 'https://github.com/dracula/vim'
  Plug 'https://github.com/ryanoasis/vim-devicons'
@@ -29,6 +30,9 @@ call plug#begin()
  Plug 'navarasu/onedark.nvim'
  Plug 'https://github.com/morhetz/gruvbox'
 call plug#end()
+
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 let g:onedark_config = {
     \ 'style': 'deep',
