@@ -31,6 +31,7 @@ call plug#begin()
  Plug 'https://github.com/morhetz/gruvbox'
  Plug 'https://github.com/nvim-lua/plenary.nvim'
  Plug 'https://github.com/voldikss/vim-floaterm'
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'https://github.com/nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 call plug#end()
 
