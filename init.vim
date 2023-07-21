@@ -13,9 +13,9 @@
 syntax on
 :set cursorline 
 :set clipboard=unnamedplus
-
 filetype plugin indent on
 
+autocmd ColorScheme * highlight! link SignColumn LineNr
 
 call plug#begin()
  Plug 'https://github.com/dracula/vim'
@@ -29,10 +29,18 @@ call plug#begin()
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'navarasu/onedark.nvim'
  Plug 'https://github.com/morhetz/gruvbox'
+ Plug 'https://github.com/nvim-lua/plenary.nvim'
+ Plug 'https://github.com/voldikss/vim-floaterm'
+ Plug 'https://github.com/nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 call plug#end()
 
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+let mapleader = "\<Space>"
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 let g:onedark_config = {
     \ 'style': 'deep',
@@ -53,36 +61,49 @@ let g:lightline = {
 	\}
 
 colorscheme gruvbox 
-
 set termguicolors
-" Exit terminal
-tnoremap <Esc> <C-\><C-n>
 
-nnoremap <F2> :call ChooseTerm("term-slider", 1) <CR>
+" Float terminal config
+let g:floaterm_titleposition = 'center'
+let g:floaterm_keymap_new    = '<F7>'
+
+" KeyMap
+nnoremap <F2> :call OpenTerm("terminal") <CR>
 nnoremap <C-q> :exe "qa" <CR>
-nnoremap <C-s> :exe "w" <CR>
-nnoremap <C-x> :make <CR>
+nnoremap <C-s> :exe "w" <CR> 
+nnoremap <C-m> :call Build("buildTerm") <CR> 
+nnoremap <Tab> :call LazyGit("lazyGit")<CR>
 
-function! ChooseTerm(termname, slider)
-	let pane = bufwinnr(a:termname)
+function! LazyGit(termname)
 	let buf = bufexists(a:termname)
 
-	if pane > 0
-		if a:slider > 0
-			:exe pane . "wincmd c"
-		else
-			:exe "e #"
-		endif
-	elseif buf > 0
-		if a:slider
-			:exe "topleft split"
-		endif
-		:exe "buffer " . a:termname
+	if buf > 0
+		:exe "bd" a:termname 
 	else
+		:FloatermNew lazygit 
+		:exe "f" a:termname
+	endif
+endfunction 
 
-		if a:slider
-			:exe "topleft split"
-		endif
+function! Build(termname)
+	let buf = bufexists(a:termname)
+
+	if buf > 0
+		:exe "bd" a:termname 
+	else
+		:exe "topleft split"
+		:terminal "./build.sh" 
+		:exe "f" a:termname
+	endif
+endfunction 
+
+function! OpenTerm(termname)
+	let buf = bufexists(a:termname)
+
+	if buf > 0
+		:exe "bd!" a:termname 
+	else
+		:exe "topleft split"
 		:terminal
 		:exe "f" a:termname
 		:startinsert
