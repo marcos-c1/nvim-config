@@ -74,7 +74,7 @@ let g:floaterm_keymap_new    = '<F7>'
 nnoremap <F2> :call OpenTerm("terminal") <CR>
 nnoremap <C-q> :exe "qa" <CR>
 nnoremap <C-s> :exe "w" <CR> 
-nnoremap <C-m> :call Build("buildTerm") <CR> 
+nnoremap <Enter> :call Build("buildTerm") <CR> 
 nnoremap <Tab> :call LazyGit("lazyGit")<CR>
 
 function! LazyGit(termname)
