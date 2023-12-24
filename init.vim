@@ -76,6 +76,7 @@ nnoremap <C-q> :exe "qa" <CR>
 nnoremap <C-s> :exe "w" <CR> 
 nnoremap <Enter> :call Build("buildTerm") <CR> 
 nnoremap <Tab> :call LazyGit("lazyGit")<CR>
+map <special> <leader>d :keepjumps call DelBlank() <CR>
 
 function! LazyGit(termname)
 	let buf = bufexists(a:termname)
@@ -111,6 +112,15 @@ function! OpenTerm(termname)
 		:exe "f" a:termname
 		:startinsert
 	endif
+endfunction
+
+function! DelBlank()
+   let _s=@/
+   let l = line(".")
+   let c = col(".")
+   :g/^\n\{2,}/d
+   let @/=_s
+   call cursor(l, c)
 endfunction
 
 " COC CONFIG"
