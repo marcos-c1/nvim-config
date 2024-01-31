@@ -29,10 +29,10 @@ call plug#begin()
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'navarasu/onedark.nvim'
  Plug 'https://github.com/morhetz/gruvbox'
- Plug 'https://github.com/nvim-lua/plenary.nvim'
  Plug 'https://github.com/voldikss/vim-floaterm'
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
- Plug 'https://github.com/nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
+ Plug 'https://github.com/nvim-lua/plenary.nvim'
+ Plug 'https://github.com/nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 call plug#end()
 
 let mapleader = "\<Space>"
