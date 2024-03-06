@@ -14,6 +14,13 @@ M.load_mappings = function()
 
   -- Lazygit
   k.set("n", "<Tab>", "<cmd> LazyGit <CR>", { noremap = true, silent = true })
+
+  -- Quit
+  k.set("n", "<C-q>", "<cmd> qa <CR>", {noremap = true, silent = true})
+
+  -- Save
+  k.set("n", "<C-s>", "<cmd> w <CR>", {noremap = true, silent = true})
+
 end
 
 return M
