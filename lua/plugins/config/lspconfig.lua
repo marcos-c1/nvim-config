@@ -3,6 +3,7 @@
 
 local M = {}
 local utils = require "core.utils"
+local lsp = require("lspconfig")
 
 -- export on_attach & capabilities for custom lspconfigs
 M.on_attach = function(client, bufnr)
@@ -40,7 +41,7 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-require("lspconfig").lua_ls.setup {
+lsp.lua_ls.setup {
   on_init = M.on_init,
   on_attach = M.on_attach,
   capabilities = M.capabilities,
@@ -61,6 +62,40 @@ require("lspconfig").lua_ls.setup {
         preloadFileSize = 10000,
       },
     },
+  },
+}
+
+lsp.pyright.setup {
+  on_init = M.on_init,
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+ 
+}
+
+lsp.tsserver.setup {
+  on_init = M.on_init,
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+
+}
+
+lsp.rust_analyzer.setup {
+  on_init = M.on_init,
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  -- Server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    ['rust-analyzer'] = {},
+  },
+}
+
+lsp.clangd.setup {
+  on_init = M.on_init,
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  -- Server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    ['rust-analyzer'] = {},
   },
 }
 
