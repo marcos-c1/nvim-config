@@ -9,6 +9,23 @@ local default_plugins = {
       require("nvterm").setup(opts)
     end,
   },
+
+  -- file explorer, picker etc
+  {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    init = function()
+      require("core.utils").load_mappings "nvimtree"
+    end,
+    opts = function()
+      return require "plugins.config.nvimtree"
+    end,
+    config = function(_, opts)
+      --dofile(vim.g.base46_cache .. "nvimtree")
+      require("nvim-tree").setup(opts)
+    end,
+  },
+
   -- themes
   {
       "arturgoms/moonbow.nvim",
