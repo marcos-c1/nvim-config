@@ -1,8 +1,8 @@
-require("gruvbox").setup({
+local options = {
   terminal_colors = true, -- add neovim terminal colors
   undercurl = true,
   underline = true,
-  bold = false,
+  bold = true,
   italic = {
     strings = false,
     emphasis = false,
@@ -20,5 +20,7 @@ require("gruvbox").setup({
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
-  transparent_mode = true,
-})
+  transparent_mode = false,
+}
+
+return options
