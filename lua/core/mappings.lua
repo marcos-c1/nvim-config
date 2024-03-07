@@ -1,5 +1,17 @@
 local k = vim.keymap
 local M = {}
+local file = vim.fn.expand('%')
+
+local nvterm = {
+  python = "python3 " .. file,
+  rust = "cargo run " .. file,
+  c = "gcc -c -o " .. file,
+  cpp = "g++ -c -o " .. file,
+  bash = "./" .. file,
+  go = "go run ".. file,
+  javascript = "node " .. file,
+  java = "javac " .. file,
+}
 
 -------------------------- mapping ----------------------
 -- vim.keymap.set({mode}, {lhs}, {rhs}, {opts})
@@ -32,7 +44,7 @@ M.general = {
       ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
 
       -- quit
-      ["<C-q>"] = { "<cmd> qa <CR> ", "Quit file" },
+      ["<C-q>"] = { "<cmd> q <CR> ", "Quit file" },
 
       -- Copy all
       ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
@@ -285,6 +297,21 @@ M.general = {
         "Toggle floating term",
       },
 
+    -- Autocompile the current file
+      ["<C-l>"] = {
+        function()
+          require("nvterm.terminal").send(nvterm[vim.bo.filetype], "horizontal")
+        end,
+       "Compile the current file"
+      },
+
+    -- Close buffer
+      ["<C-k>"] = {
+        function()
+         require("nvterm.terminal").close_all_terms() 
+        end
+      },
+
       ["<A-h>"] = {
         function()
           require("nvterm.terminal").toggle "horizontal"
@@ -316,25 +343,25 @@ M.general = {
     },
   }
 
-  -- M.whichkey = {
-    --plugin = true,
+  M.whichkey = {
+    plugin = true,
 
-    --n = {
-     -- ["<leader>wK"] = {
-      --  function()
-       --   vim.cmd "WhichKey"
-        -- end,
-       -- "Which-key all keymaps",
-      -- },
-      -- ["<leader>wk"] = {
-        -- function()
-          -- local input = vim.fn.input "WhichKey: "
-          -- vim.cmd("WhichKey " .. input)
-        -- end,
-        -- "Which-key query lookup",
-      -- },
-    --},
---  }
+    n = {
+      ["<leader>wK"] = {
+        function()
+          vim.cmd "WhichKey"
+        end,
+        "Which-key all keymaps",
+      },
+      ["<leader>wk"] = {
+        function()
+          local input = vim.fn.input "WhichKey: "
+          vim.cmd("WhichKey " .. input)
+        end,
+        "Which-key query lookup",
+      },
+    },
+  }
 
   M.blankline = {
     plugin = true,

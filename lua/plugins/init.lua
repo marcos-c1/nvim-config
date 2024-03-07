@@ -10,6 +10,10 @@ local default_plugins = {
     end,
   },
 
+  {
+    'akinsho/bufferline.nvim', version = "*", 
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
   -- file explorer, picker etc
   {
     "nvim-tree/nvim-tree.lua",
@@ -239,6 +243,19 @@ local default_plugins = {
     end,
   },
 
+   -- Only load whichkey after all the gui
+  {
+    "folke/which-key.nvim",
+    keys = { "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "v", "g" },
+    init = function()
+      require("core.utils").load_mappings "whichkey"
+    end,
+    cmd = "WhichKey",
+    config = function(_, opts)
+      --dofile(vim.g.base46_cache .. "whichkey")
+      require("which-key").setup(opts)
+    end,
+  },
 }
 
 local config = require("core.utils").load_config()
