@@ -83,7 +83,7 @@ local default_plugins = {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
-    event = "User FilePost",
+    --event = "User FilePost",
     config = function()
       require "plugins.config.lspconfig"
     end,
@@ -127,7 +127,7 @@ local default_plugins = {
   {
     "lukas-reineke/indent-blankline.nvim",
     version = "2.20.7",
-    event = "User FilePost",
+    --event = "User FilePost",
     opts = function()
       return require("plugins.config.others").blankline
     end,
@@ -184,14 +184,6 @@ local default_plugins = {
       end, {})
 
       vim.g.mason_binaries_list = opts.ensure_installed
-    end,
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    event = "User FilePost",
-    config = function()
-      require "plugins.config.lspconfig"
     end,
   },
 

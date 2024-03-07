@@ -34,6 +34,9 @@ M.general = {
 
       ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
 
+      -- Open Lazy UI
+      ["<leader>l"] = {"<cmd> Lazy <CR>", "Open Lazy UI"},
+
       -- switch between windows
       ["<C-h>"] = { "<C-w>h", "Window left" },
       ["<C-l>"] = { "<C-w>l", "Window right" },
