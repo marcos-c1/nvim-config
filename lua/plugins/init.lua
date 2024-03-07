@@ -11,8 +11,18 @@ local default_plugins = {
   },
 
   {
-    'akinsho/bufferline.nvim', version = "*", 
-    dependencies = 'nvim-tree/nvim-web-devicons'
+    'akinsho/bufferline.nvim', 
+    version = "*", 
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    init = function()
+      require("core.utils").load_mappings "bufferline"
+    end,
+    opts = function() 
+      return require "plugins.config.others".bufferline
+    end, 
+    config = function(_, opts)
+      require("bufferline").setup(opts)
+    end,
   },
   -- file explorer, picker etc
   {
@@ -37,9 +47,7 @@ local default_plugins = {
       config = function()
         require("moonbow")
         vim.cmd[[ colorscheme moonbow ]]
-      
       end,
-
   },
   { 
       "catppuccin/nvim", 
@@ -50,6 +58,31 @@ local default_plugins = {
       end,
       config = function(_, opts)
         require("catppuccin").setup(opts)
+        --vim.cmd[[ colorscheme catppuccin ]]
+      end,
+  },
+  {
+      "navarasu/onedark.nvim",
+      priority = 1000,
+      name = "onedark",
+      opts = function()
+        return require("plugins.config.others").onedark
+      end,
+      config = function(_, opts)
+        require("onedark").setup(opts)
+        --vim.cmd[[ colorscheme onedark ]]
+      end,
+  },
+  {
+      "ellisonleao/gruvbox.nvim",
+      priority = 1000,
+      name = "gruvbox",
+      opts = function()
+        return require("plugins.config.others").gruvbox
+      end,
+      config = function(_, opts)
+        require("gruvbox").setup(opts)
+        --vim.cmd[[ colorscheme gruvbox ]]
       end,
   },
 

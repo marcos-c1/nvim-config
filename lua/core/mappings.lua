@@ -37,6 +37,8 @@ M.general = {
       -- Open Lazy UI
       ["<leader>l"] = {"<cmd> Lazy <CR>", "Open Lazy UI"},
 
+      ["<leader>m"] = {"<cmd> Mason <CR>", "Open Mason UI"},
+
       -- switch between windows
       ["<C-h>"] = { "<C-w>h", "Window left" },
       ["<C-l>"] = { "<C-w>l", "Window right" },
@@ -261,6 +263,14 @@ M.general = {
       --["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
       ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+    },
+  }
+
+  M.bufferline = {
+    plugin = true,
+    
+    n = {
+      ["<leader>t"] = { "<cmd> BufferLinePick <CR>", "Pick a bufferline tab"},
     },
   }
 

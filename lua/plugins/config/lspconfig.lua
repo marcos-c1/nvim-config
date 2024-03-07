@@ -99,4 +99,20 @@ lsp.clangd.setup {
   },
 }
 
+lsp.gopls.setup {
+  on_init = M.on_init,
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  -- Server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
+}
+
 return M

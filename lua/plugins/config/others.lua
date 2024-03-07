@@ -97,6 +97,20 @@ M.catppuccin = {
     },
 }
 
+M.bufferline = {
+  options = {
+    mode = 'buffers',
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "File Explorer",
+        highlight = "Directory",
+        separator = true,
+      }
+    }
+  }
+}
+
 M.gitsigns = {
   signs = {
     add = { text = "│" },
@@ -109,6 +123,93 @@ M.gitsigns = {
   on_attach = function(bufnr)
     utils.load_mappings("gitsigns", { buffer = bufnr })
   end,
+}
+
+M.onedark = {
+    style = 'deep', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    transparent = false,  -- Show/hide background
+    term_colors = true, -- Change terminal color as per the selected theme style
+    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+    -- toggle theme style ---
+    toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+    -- Change code style ---
+    -- Options are italic, bold, underline, none
+    -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+    code_style = {
+        comments = 'italic',
+        keywords = 'none',
+        functions = 'none',
+        strings = 'none',
+        variables = 'none'
+    },
+
+    -- Lualine options --
+    lualine = {
+        transparent = false, -- lualine center bar transparency
+    },
+
+    -- Custom Highlights --
+    colors = {}, -- Override default colors
+    highlights = {}, -- Override highlight groups
+
+    -- Plugins Config --
+    diagnostics = {
+        darker = true, -- darker colors for diagnostic
+        undercurl = true,   -- use undercurl instead of underline for diagnostics
+        background = true,    -- use background color for virtual text
+    },
+}
+
+M.gruvbox = {
+  terminal_colors = true, -- add neovim terminal colors
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = {
+    strings = true,
+    emphasis = true,
+    comments = true,
+    operators = false,
+    folds = true,
+  },
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "hard", -- can be "hard", "soft" or empty string
+  palette_overrides = {},
+  overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
+}
+
+M.peek = {
+ auto_load = true,         -- whether to automatically load preview when
+                            -- entering another markdown buffer
+  close_on_bdelete = true,  -- close preview window on buffer delete
+
+  syntax = true,            -- enable syntax highlighting, affects performance
+
+  theme = 'dark',           -- 'dark' or 'light'
+
+  update_on_change = true,
+
+  app = 'webview',          -- 'webview', 'browser', string or a table of strings
+                            -- explained below
+
+  filetype = { 'markdown' },-- list of filetypes to recognize as markdown
+
+  -- relevant if update_on_change is true
+  throttle_at = 200000,     -- start throttling when file exceeds this
+                            -- amount of bytes in size
+  throttle_time = 'auto',   -- minimum amount of time in milliseconds
+                            -- that has to pass before starting new render
 }
 
 return M
