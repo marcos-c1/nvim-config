@@ -7,20 +7,22 @@
 
 </div>
 
-## Themes
+<h2 align="center">Themes</h2>
 
 <figure align="center">
     <img src="moonbow.png" alt="Moonbow theme"/>
-    <figcaption>Moonbow theme</figcaption>
+    <figcaption align="center">Moonbow theme</figcaption>
     <img src="catppuccin.png" alt="Catppuccin theme"/>
-    <figcaption>Catppuccin theme</figcaption>
+    <figcaption align="center">Catppuccin theme</figcaption>
     <img src="onedark.png" alt="Onedark theme"/>
-    <figcaption>Onedark theme</figcaption>
+    <figcaption align="center">Onedark theme</figcaption>
     <img src="gruvbox.png" alt="Gruvbox theme"/>
-    <figcaption>Gruvbox theme</figcaption>
+    <figcaption align="center">Gruvbox theme</figcaption>
 </figure>
 
-- Needs neovim version > 0.9.0
+## Only dependency
+
+Needs neovim version > 0.9.0
 
 ## Throughts 
 
@@ -38,26 +40,26 @@ Lua basically works around tables structure, these tables implement all these ab
 
 ## List of plugins
 
-    - Plugin manager [Lazy](https://github.com/folke/lazy.nvim)
-    - Fuzzy finder over files & more [Telescope](https://github.com/nvim-telescope/telescope.nvim)
-    - Inbuilt terminal toggling & management [Nvterm](https://github.com/NvChad/nvterm)
-    - Git changes in code & more [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-    - A snazzy built for manage files across tabs or buffers [Bufferline](https://github.com/akinsho/bufferline.nvim)
-    - A float terminal UI for git commands [Lazygit](https://github.com/jesseduffield/lazygit)
-    - Lualine statusline theme [Lualine](https://github.com/nvim-lualine/lualine.nvim)
-    - Moonbow colorscheme theme [Moonbow](https://github.com/arturgoms/moonbow.nvim)                              
-    - Catppuccin colorscheme theme (can integrate with Lualine)[Catppuccin](https://github.com/catppuccin/nvim)   
-    - Onedark colorscheme theme [Onedark](https://github.com/navarasu/onedark.nvim)
-    - Gruvbox colorscheme theme [Gruvbox](https://github.com/ellisonleao/gruvbox.nvim)
-    - A management tool for language server protocol LSP [Mason](https://github.com/williamboman/mason.nvim) 
-    - A tool to configure LSP for lazy [NvimConfig](https://github.com/neovim/nvim-lspconfig)
-    - File explorer with some functionalities [NvimTree](https://github.com/nvim-tree/nvim-tree.lua) 
-    - Syntax highlighter for your code [NvimTreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
-    - A beautifull stylish for icons [NvimWebDevIcons](https://github.com/nvim-tree/nvim-web-devicons)
-    - Useful functions for Lua [Plenary](https://github.com/nvim-lua/plenary.nvim)
-    - Popup with keybindings [WhichKey](https://github.com/folke/which-key.nvim)
+- Plugin manager [Lazy](https://github.com/folke/lazy.nvim)
+- Fuzzy finder over files & more [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- Inbuilt terminal toggling & management [Nvterm](https://github.com/NvChad/nvterm)
+- Git changes in code & more [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- A snazzy built for manage files across tabs or buffers [Bufferline](https://github.com/akinsho/bufferline.nvim)
+- A float terminal UI for git commands [Lazygit](https://github.com/jesseduffield/lazygit)
+- Lualine statusline theme [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+- Moonbow colorscheme theme [Moonbow](https://github.com/arturgoms/moonbow.nvim)                              
+- Catppuccin colorscheme theme (can integrate with Lualine)[Catppuccin](https://github.com/catppuccin/nvim)   
+- Onedark colorscheme theme [Onedark](https://github.com/navarasu/onedark.nvim)
+- Gruvbox colorscheme theme [Gruvbox](https://github.com/ellisonleao/gruvbox.nvim)
+- A management tool for language server protocol LSP [Mason](https://github.com/williamboman/mason.nvim) 
+- A tool to configure LSP for lazy [NvimConfig](https://github.com/neovim/nvim-lspconfig)
+- File explorer with some functionalities [NvimTree](https://github.com/nvim-tree/nvim-tree.lua) 
+- Syntax highlighter for your code [NvimTreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- A beautifull stylish for icons [NvimWebDevIcons](https://github.com/nvim-tree/nvim-web-devicons)
+- Useful functions for Lua [Plenary](https://github.com/nvim-lua/plenary.nvim)
+- Popup with keybindings [WhichKey](https://github.com/folke/which-key.nvim)
 
-### Keybinds syntax
+## Keybinds syntax
 
 To every plugin installed, you can manage your keybinds defining an attribute to the object using this kind of syntax: 
 
@@ -72,4 +74,4 @@ Where the attributes of the object can be plugin and the definition of the key.
 
 To see all the used keybinds, press enter in keyboard to display whichkey popup.
 
-- Made with :gift_heart: by @marcos-c1 
+> Made with :gift_heart: by @marcos-c1 
