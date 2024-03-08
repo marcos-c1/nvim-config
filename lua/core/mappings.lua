@@ -30,7 +30,7 @@ M.general = {
     },
     n = {
       -- Lazygit
-      ["<Tab>"] = { "<cmd> LazyGit <CR>", "Open LazyGit float terminal" },
+      ["<leader>g"] = { "<cmd> LazyGit <CR>", "Open LazyGit float terminal" },
 
       ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
 
@@ -50,6 +50,9 @@ M.general = {
 
       -- quit
       ["<C-q>"] = { "<cmd> q <CR> ", "Quit file" },
+
+      -- close buffer tabs
+      ["<S-q>"] = { "<cmd> bd <CR>", "Quit a buffer tab"},
 
       -- Copy all
       ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
@@ -271,6 +274,8 @@ M.general = {
     
     n = {
       ["<leader>t"] = { "<cmd> BufferLinePick <CR>", "Pick a bufferline tab"},
+      ["<Tab>"] = { "<cmd> BufferLineCycleNext <CR>", "Go to the next tab"},
+      ["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR>", "Go to the previous tab"},
     },
   }
 
