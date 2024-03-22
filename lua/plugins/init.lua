@@ -10,6 +10,10 @@ local default_plugins = {
     end,
   },
 
+  
+  
+  
+
   {
     'akinsho/bufferline.nvim', 
     version = "*", 
@@ -42,11 +46,19 @@ local default_plugins = {
 
   -- themes
   {
+    "nyoom-engineering/oxocarbon.nvim",
+    priority = 1000,
+    config = function()
+      require("moonbow")
+      vim.cmd[[ colorscheme oxocarbon ]]
+    end,
+  },
+  {
       "arturgoms/moonbow.nvim",
       priority = 1000,
       config = function()
         require("moonbow")
-        vim.cmd[[ colorscheme moonbow ]]
+        --vim.cmd[[ colorscheme moonbow ]]
       end,
   },
   { 
