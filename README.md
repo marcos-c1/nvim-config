@@ -11,13 +11,13 @@
 
 <figure align="center">
     <img src="moonbow.png" alt="Moonbow theme"/>
-    <figcaption align="center">Moonbow theme</figcaption>
+    <figcaption style="text-align: center;">Moonbow theme</figcaption>
     <img src="catppuccin.png" alt="Catppuccin theme"/>
-    <figcaption align="center">Catppuccin theme</figcaption>
+    <figcaption style="text-align: center;">Catppuccin theme</figcaption>
     <img src="onedark.png" alt="Onedark theme"/>
-    <figcaption align="center">Onedark theme</figcaption>
+    <figcaption style="text-align: center;">Onedark theme</figcaption>
     <img src="gruvbox.png" alt="Gruvbox theme"/>
-    <figcaption align="center">Gruvbox theme</figcaption>
+    <figcaption style="text-align: center;">Gruvbox theme</figcaption>
 </figure>
 
 ## Only dependency
