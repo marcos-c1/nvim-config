@@ -1,4 +1,3 @@
-local k = vim.keymap
 local M = {}
 local file = vim.fn.expand('%')
 
@@ -34,6 +33,8 @@ M.general = {
 
       ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
 
+      --["<leader>r"] = { "<cmd> %s/\r/ <CR>", "Remove all ^M from lines copy/paste from Windows environment"},
+
       -- Open Lazy UI
       ["<leader>l"] = {"<cmd> Lazy <CR>", "Open Lazy UI"},
 
@@ -44,7 +45,7 @@ M.general = {
       ["<C-l>"] = { "<C-w>l", "Window right" },
       ["<C-j>"] = { "<C-w>j", "Window down" },
       ["<C-k>"] = { "<C-w>k", "Window up" },
-
+    
       -- save
       ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
 
@@ -271,7 +272,6 @@ M.general = {
 
   M.bufferline = {
     plugin = true,
-    
     n = {
       ["<leader>t"] = { "<cmd> BufferLinePick <CR>", "Pick a bufferline tab"},
       ["<Tab>"] = { "<cmd> BufferLineCycleNext <CR>", "Go to the next tab"},

@@ -1,4 +1,7 @@
 local options = {
+  diagnostics = {
+    enable = true,
+  },
   filters = {
     dotfiles = false,
     exclude = { vim.fn.stdpath "config" .. "/lua/custom" },

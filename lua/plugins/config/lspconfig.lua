@@ -147,29 +147,6 @@ lsp.vuels.setup {
         },
 }
 
-lsp.harper_ls.setup {
-  on_init = M.on_init,
-  on_attach = M.on_attach,
-  capabilities = M.capabilities,
-  -- Default settings
-  settings = {
-    ["harper-ls"] = {
-      linters = {
-        spell_check = true,
-        spelled_numbers = false,
-        an_a = true,
-        sentence_capitalization = true,
-        unclosed_quotes = true,
-        wrong_quotes = false,
-        long_sentences = true,
-        repeated_words = true,
-        spaces = true,
-        matcher = true
-      }
-    }
-  },
-}
-
 lsp.emmet_language_server.setup{}
 
 return M

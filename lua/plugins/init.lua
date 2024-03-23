@@ -1,4 +1,53 @@
 local default_plugins = {
+  -- load luasnips + cmp related in insert mode only (copy pasted from NvChad)
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      {
+        -- snippet plugin
+        "L3MON4D3/LuaSnip",
+        dependencies = "rafamadriz/friendly-snippets",
+        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        config = function(_, opts)
+          require("luasnip").config.set_config(opts)
+          require "plugins.config.luasnip"
+        end,
+      },
+
+      -- autopairing of (){}[] etc
+      {
+        "windwp/nvim-autopairs",
+        opts = {
+          fast_wrap = {},
+          disable_filetype = { "TelescopePrompt", "vim" },
+        },
+        config = function(_, opts)
+          require("nvim-autopairs").setup(opts)
+
+          -- setup cmp for autopairs
+          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end,
+      },
+
+      -- cmp sources plugins
+      {
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+      },
+    },
+    opts = function()
+      return require "plugins.config.cmp"
+    end,
+    config = function(_, opts)
+      require("cmp").setup(opts)
+    end,
+  },
+
   'nvim-lua/plenary.nvim',
   {
     "NvChad/nvterm",
@@ -9,19 +58,14 @@ local default_plugins = {
       require("nvterm").setup(opts)
     end,
   },
-
-  
-  
-  
-
   {
-    'akinsho/bufferline.nvim', 
-    version = "*", 
+    'akinsho/bufferline.nvim',
+    version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
     init = function()
       require("core.utils").load_mappings "bufferline"
     end,
-    opts = function() 
+    opts = function()
       return require "plugins.config.others".bufferline
     end, 
     config = function(_, opts)
@@ -50,7 +94,16 @@ local default_plugins = {
     priority = 1000,
     config = function()
       require("moonbow")
-      vim.cmd[[ colorscheme oxocarbon ]]
+     -- vim.cmd[[ colorscheme oxocarbon ]]
+    end,
+  },
+  { 
+    "Everblush/nvim",
+    name = 'everblush',
+    priority = 1000,
+    config = function()
+      require("everblush")
+      -- vim.cmd[[ colorscheme everblush ]]
     end,
   },
   {
@@ -58,7 +111,7 @@ local default_plugins = {
       priority = 1000,
       config = function()
         require("moonbow")
-        --vim.cmd[[ colorscheme moonbow ]]
+        vim.cmd[[ colorscheme moonbow ]]
       end,
   },
   { 
@@ -146,7 +199,7 @@ local default_plugins = {
       return require "plugins.config.telescope"
     end,
     config = function(_, opts)
-      ----dofile(vim.g.base46_cache .. "telescope")
+      dofile(vim.g.base46_cache .. "telescope")
       local telescope = require "telescope"
       telescope.setup(opts)
 
@@ -164,7 +217,7 @@ local default_plugins = {
       --return { override = require "nvchad.icons.devicons" }
     --end,
     config = function(_, opts)
-      ----dofile(vim.g.base46_cache .. "devicons")
+      dofile(vim.g.base46_cache .. "devicons")
       require("nvim-web-devicons").setup(opts)
     end,
   },
@@ -193,7 +246,7 @@ local default_plugins = {
       return require "plugins.config.treesitter"
     end,
     config = function(_, opts)
-      --dofile(vim.g.base46_cache .. "syntax")
+      dofile(vim.g.base46_cache .. "syntax")
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
@@ -218,7 +271,7 @@ local default_plugins = {
       return require "plugins.config.mason"
     end,
     config = function(_, opts)
-      -- dofile(vim.g.base46_cache .. "mason")
+      dofile(vim.g.base46_cache .. "mason")
       require("mason").setup(opts)
 
       -- custom nvchad cmd to install all mason binaries listed
@@ -232,54 +285,6 @@ local default_plugins = {
     end,
   },
 
-  -- load luasnips + cmp related in insert mode only
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      {
-        -- snippet plugin
-        "L3MON4D3/LuaSnip",
-        dependencies = "rafamadriz/friendly-snippets",
-        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-        --config = function(_, opts)
-          --require("plugins.config.others").luasnip(opts)
-        --end,
-      },
-
-      -- autopairing of (){}[] etc
-      {
-        "windwp/nvim-autopairs",
-        opts = {
-          fast_wrap = {},
-          disable_filetype = { "TelescopePrompt", "vim" },
-        },
-        config = function(_, opts)
-          require("nvim-autopairs").setup(opts)
-
-          -- setup cmp for autopairs
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
-      },
-
-      -- cmp sources plugins
-      {
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-      },
-    },
-    opts = function()
-      return require "plugins.config.cmp"
-    end,
-    config = function(_, opts)
-      require("cmp").setup(opts)
-    end,
-  },
-
    -- Only load whichkey after all the gui
   {
     "folke/which-key.nvim",
@@ -289,7 +294,7 @@ local default_plugins = {
     end,
     cmd = "WhichKey",
     config = function(_, opts)
-      --dofile(vim.g.base46_cache .. "whichkey")
+      dofile(vim.g.base46_cache .. "whichkey")
       require("which-key").setup(opts)
     end,
   },
