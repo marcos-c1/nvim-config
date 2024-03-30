@@ -199,7 +199,7 @@ local default_plugins = {
       return require "plugins.config.telescope"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "telescope")
+      --dofile(vim.g.base46_cache .. "telescope")
       local telescope = require "telescope"
       telescope.setup(opts)
 
@@ -217,7 +217,7 @@ local default_plugins = {
       --return { override = require "nvchad.icons.devicons" }
     --end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "devicons")
+      --dofile(vim.g.base46_cache .. "devicons")
       require("nvim-web-devicons").setup(opts)
     end,
   },
@@ -246,7 +246,7 @@ local default_plugins = {
       return require "plugins.config.treesitter"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "syntax")
+      --dofile(vim.g.base46_cache .. "syntax")
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
@@ -271,7 +271,7 @@ local default_plugins = {
       return require "plugins.config.mason"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "mason")
+      --dofile(vim.g.base46_cache .. "mason")
       require("mason").setup(opts)
 
       -- custom nvchad cmd to install all mason binaries listed
@@ -294,7 +294,7 @@ local default_plugins = {
     end,
     cmd = "WhichKey",
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "whichkey")
+      --dofile(vim.g.base46_cache .. "whichkey")
       require("which-key").setup(opts)
     end,
   },
