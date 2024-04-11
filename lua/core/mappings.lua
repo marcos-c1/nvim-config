@@ -5,11 +5,11 @@ local nvterm = {
   python = "python3 " .. file,
   rust = "cargo run " .. file,
   c = "gcc " .. file .. " -o main.o && ./main.o",
-  cpp = "g++" .. file .. " -o main.o && ./main.o",
+  cpp = "g++ " .. file .. " -o main.o && ./main.o",
   bash = "./" .. file,
   go = "go run ".. file,
   javascript = "node " .. file,
-  java = "javac " .. file,
+  java = "javac " .. file, 
 }
 
 -------------------------- mapping ----------------------
@@ -33,7 +33,7 @@ M.general = {
 
       ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
 
-      --["<leader>r"] = { "<cmd> %s/\r/ <CR>", "Remove all ^M from lines copy/paste from Windows environment"},
+      ["<leader>r"] = { "<cmd> g/^$/d <CR>", "Remove all ^M from lines copy/paste from Windows environment"},
 
       -- Open Lazy UI
       ["<leader>l"] = {"<cmd> Lazy <CR>", "Open Lazy UI"},
