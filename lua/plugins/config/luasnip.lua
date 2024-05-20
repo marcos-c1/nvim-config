@@ -7,6 +7,10 @@ require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets
 require("luasnip.loaders.from_snipmate").load()
 require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.g.snipmate_snippets_path or "" }
 
+-- opts
+require("luasnip").history = true
+require("luasnip").updateevents = "TextChanged,TextChangedI"
+
 -- lua format
 require("luasnip.loaders.from_lua").load()
 require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path or "" }

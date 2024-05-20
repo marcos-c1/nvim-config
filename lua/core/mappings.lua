@@ -7,9 +7,9 @@ local nvterm = {
   c = "gcc " .. file .. " -o main.o && ./main.o",
   cpp = "g++ " .. file .. " -o main.o && ./main.o",
   bash = "./" .. file,
-  go = "go run ".. file,
+  go = "go run " .. file,
   javascript = "node " .. file,
-  java = "javac " .. file, 
+  java = "javac " .. file,
 }
 
 -------------------------- mapping ----------------------
@@ -33,7 +33,7 @@ M.general = {
 
       ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
 
-      ["<leader>r"] = { "<cmd> g/^$/d <CR>", "Remove all ^M from lines copy/paste from Windows environment"},
+      ["<C-t>"] = { "<cmd> TransparentToggle <CR>", "Toggle the transparent background on editor"},
 
       -- Open Lazy UI
       ["<leader>l"] = {"<cmd> Lazy <CR>", "Open Lazy UI"},
@@ -45,7 +45,7 @@ M.general = {
       ["<C-l>"] = { "<C-w>l", "Window right" },
       ["<C-j>"] = { "<C-w>j", "Window down" },
       ["<C-k>"] = { "<C-w>k", "Window up" },
-    
+
       -- save
       ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
 
@@ -326,7 +326,7 @@ M.general = {
     -- Close buffer
       ["<C-k>"] = {
         function()
-         require("nvterm.terminal").close_all_terms() 
+         require("nvterm.terminal").close_all_terms()
         end
       },
 
@@ -396,7 +396,7 @@ M.general = {
             vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
             vim.cmd [[normal! _]]
           end
-        end, 
+        end,
       },
     },
   }

@@ -1,6 +1,21 @@
 local default_plugins = {
   -- load luasnips + cmp related in insert mode only (copy pasted from NvChad)
   {
+    "xiyaowong/transparent.nvim"
+  },
+  {
+    "cappyzawa/trim.nvim",
+    config = function()
+      require("trim").setup({})
+    end
+  },
+  {
+     'barrett-ruth/live-server.nvim',
+     build = 'npm install -g live-server',
+     cmd = { 'LiveServerStart', 'LiveServerStop' },
+     config = true,
+  },
+  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
@@ -67,7 +82,7 @@ local default_plugins = {
     end,
     opts = function()
       return require "plugins.config.others".bufferline
-    end, 
+    end,
     config = function(_, opts)
       require("bufferline").setup(opts)
     end,
@@ -90,40 +105,40 @@ local default_plugins = {
 
   -- themes
   {
-    "nyoom-engineering/oxocarbon.nvim",
-    priority = 1000,
+    "akinsho/horizon.nvim",
+    version = "*",
     config = function()
-      require("moonbow")
-     -- vim.cmd[[ colorscheme oxocarbon ]]
+      require("horizon")
+      vim.cmd[[ colorscheme horizon ]]
     end,
   },
-  { 
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    config = function()
+      require("moonbow")
+    end,
+  },
+  {
     "Everblush/nvim",
     name = 'everblush',
-    priority = 1000,
     config = function()
       require("everblush")
-      -- vim.cmd[[ colorscheme everblush ]]
     end,
   },
   {
       "arturgoms/moonbow.nvim",
-      priority = 1000,
       config = function()
         require("moonbow")
-        vim.cmd[[ colorscheme moonbow ]]
       end,
   },
-  { 
-      "catppuccin/nvim", 
-      name = "catppuccin", 
-      priority = 1000,
+  {
+      "catppuccin/nvim",
+      name = "catppuccin",
       opts = function()
         return require "plugins.config.others".catppuccin
       end,
       config = function(_, opts)
         require("catppuccin").setup(opts)
-        --vim.cmd[[ colorscheme catppuccin ]]
       end,
   },
   {
@@ -135,7 +150,6 @@ local default_plugins = {
       end,
       config = function(_, opts)
         require("onedark").setup(opts)
-        --vim.cmd[[ colorscheme onedark ]]
       end,
   },
   {
@@ -147,7 +161,6 @@ local default_plugins = {
       end,
       config = function(_, opts)
         require("gruvbox").setup(opts)
-        --vim.cmd[[ colorscheme gruvbox ]]
       end,
   },
 
@@ -161,7 +174,7 @@ local default_plugins = {
       config = function(_, opts)
         require("lualine").setup(opts)
       end,
-  }, 
+  },
 
   -- lazygit support to floatterm
   { "kdheepak/lazygit.nvim",

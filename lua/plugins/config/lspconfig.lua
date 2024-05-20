@@ -115,36 +115,11 @@ lsp.gopls.setup {
   },
 }
 
-lsp.vuels.setup {
+lsp.volar.setup {
   on_init = M.on_init,
   on_attach = M.on_attach,
   capabilities = M.capabilities,
-  
-  settings = {
-            vetur = {
-                completion = {
-                    autoImport = true,
-                    useScaffoldSnippets = true
-                },
-                format = {
-                    defaultFormatter = {
-                        html = "none",
-                        js = "prettier",
-                        ts = "prettier",
-                    }
-                },
-                validation = {
-                    template = true,
-                    script = true,
-                    style = true,
-                    templateProps = true,
-                    interpolation = true
-                },
-                experimental = {
-                    templateInterpolationService = true
-                }
-            }
-        },
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
 
 lsp.emmet_language_server.setup{}

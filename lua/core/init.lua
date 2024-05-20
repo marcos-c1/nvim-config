@@ -2,7 +2,7 @@ local opt = vim.opt
 local g = vim.g
 
 ----------------- globals --------------------
-g.transparency = false
+g.transparency = true
 
 ----------------- options --------------------
 opt.laststatus = 3 -- global statusline
