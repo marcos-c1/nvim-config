@@ -75,7 +75,6 @@ local default_plugins = {
   },
   {
     'akinsho/bufferline.nvim',
-    version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
     init = function()
       require("core.utils").load_mappings "bufferline"
