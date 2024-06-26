@@ -1,28 +1,56 @@
 local options = {
-  ensure_installed = { "lua-language-server" }, -- not an option from mason.nvim
+	-- mason.lspconfig
+	ensure_installed = {
+		-- lsp
+		"lua-language-server",
+		"vim-language-server",
+		"typescript-language-server",
+		"emmet-language-server",
+		"pyright",
+		"gopls",
+		"rust-analyzer",
+		"tailwindcss-language-server",
+		"clangd",
+		"phpactor",
 
-  PATH = "skip",
+		-- formatters
+		"stylua",
+		"gofumpt",
+		"goimports",
+		"goimports-reviser",
+		"golines",
+		"markdownlint",
+		"prettier",
+		"rustfmt",
+		"jq",
+		"isort",
+		"black",
+		"clang-format",
+		"php-cs-fixer",
+	}, -- not an option from mason.nvim
 
-  ui = {
-    icons = {
-      package_pending = " ",
-      package_installed = "󰄳 ",
-      package_uninstalled = " 󰚌",
-    },
+	PATH = "skip",
 
-    keymaps = {
-      toggle_server_expand = "<CR>",
-      install_server = "i",
-      update_server = "u",
-      check_server_version = "c",
-      update_all_servers = "U",
-      check_outdated_servers = "C",
-      uninstall_server = "X",
-      cancel_installation = "<C-c>",
-    },
-  },
+	ui = {
+		icons = {
+			package_pending = " ",
+			package_installed = "󰄳 ",
+			package_uninstalled = " 󰚌",
+		},
 
-  max_concurrent_installers = 10,
+		keymaps = {
+			toggle_server_expand = "<CR>",
+			install_server = "i",
+			update_server = "u",
+			check_server_version = "c",
+			update_all_servers = "U",
+			check_outdated_servers = "C",
+			uninstall_server = "X",
+			cancel_installation = "<C-c>",
+		},
+	},
+
+	max_concurrent_installers = 10,
 }
 
 return options

@@ -231,6 +231,22 @@ M.general = {
     },
   }
 
+  M.conform = {
+    plugin =  true,
+    n = {
+      ["<leader>mp"] = {
+        function()
+          require("confort").format({
+            lsp_format = "fallback",
+            async = false,
+            timeout_ms = 500
+          })
+        end,
+      "Format file or range"
+      }
+    }
+  }
+
   M.nvimtree = {
     plugin = true,
 
