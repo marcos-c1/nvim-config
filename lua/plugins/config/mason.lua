@@ -12,6 +12,7 @@ local options = {
 		"tailwindcss-language-server",
 		"clangd",
 		"phpactor",
+		"svelte-language-server",
 
 		-- formatters
 		"stylua",

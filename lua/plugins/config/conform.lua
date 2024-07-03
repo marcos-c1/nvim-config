@@ -22,10 +22,17 @@ local options = {
 		-- run only the first available with double brackets
 		python = { { "isort", "black" } },
 	},
-	format_on_save = {
+	-- it was format_on_save but it was timeouting in my notebook
+	-- format_on_save = {
+	--   timeout_ms = 500,
+	--   lsp_format = "fallback",
+	--   async = false,
+	-- },
+
+	format_after_save = {
 		timeout_ms = 500,
 		lsp_format = "fallback",
-		async = false,
+		async = true,
 	},
 }
 
