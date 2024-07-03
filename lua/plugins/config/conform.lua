@@ -1,5 +1,6 @@
 local options = {
 	formatters_by_ft = {
+		svg = { "prettier" },
 		javascript = { "prettier" },
 		typescript = { "prettier" },
 		javascriptreact = { "prettier" },
@@ -16,6 +17,8 @@ local options = {
 		rust = { "rustfmt" },
 		cpp = { "clang-format" },
 		c = { "clang-format" },
+		bash = { "shfmt" },
+		php = { "php-cs-fixer" },
 		-- run only the first available with double brackets
 		python = { { "isort", "black" } },
 	},

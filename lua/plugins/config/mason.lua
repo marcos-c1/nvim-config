@@ -22,6 +22,7 @@ local options = {
 		"markdownlint",
 		"prettier",
 		"rustfmt",
+		"shfmt",
 		"jq",
 		"isort",
 		"black",
