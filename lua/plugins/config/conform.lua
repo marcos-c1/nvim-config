@@ -19,6 +19,7 @@ local options = {
 		c = { "clang-format" },
 		bash = { "shfmt" },
 		php = { "php-cs-fixer" },
+		latex = { "texlab", "plaintex", "bib" },
 		-- run only the first available with double brackets
 		python = { { "isort", "black" } },
 	},
