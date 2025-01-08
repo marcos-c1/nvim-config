@@ -137,7 +137,7 @@ local default_plugins = {
 		"EdenEast/nightfox.nvim",
 		config = function()
 			require("nightfox")
-			vim.cmd([[ colorscheme duskfox ]])
+			-- vim.cmd([[ colorscheme duskfox ]])
 		end,
 	},
 	{
@@ -145,7 +145,7 @@ local default_plugins = {
 		version = "*",
 		config = function()
 			require("horizon")
-			--vim.cmd[[ colorscheme horizon ]]
+			vim.cmd[[ colorscheme horizon ]]
 		end,
 	},
 	{
