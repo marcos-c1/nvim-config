@@ -1,5 +1,21 @@
 local options = {
-	ensure_installed = { "lua", "vim", "vimdoc", "svelte" },
+	ensure_installed = {
+		"lua",
+		"vim",
+		"vimdoc",
+		"svelte",
+		"javascript",
+		"typescript",
+		"tsx",
+		"c",
+		"markdown",
+		"sql",
+		"java",
+		"json",
+		"xml",
+		"php",
+		"python",
+	},
 
 	highlight = {
 		enable = true,
