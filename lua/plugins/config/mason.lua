@@ -13,6 +13,7 @@ local options = {
 		"clangd",
 		"phpactor",
 		"svelte-language-server",
+		"texlab",
 
 		-- formatters
 		"stylua",
@@ -29,6 +30,7 @@ local options = {
 		"black",
 		"clang-format",
 		"php-cs-fixer",
+		"latexindent",
 	}, -- not an option from mason.nvim
 
 	PATH = "skip",
