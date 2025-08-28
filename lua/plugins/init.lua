@@ -130,14 +130,12 @@ local default_plugins = {
 		end,
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
-			--vim.cmd([[ colorscheme tokyonight ]])
 		end,
 	},
 	{
 		"EdenEast/nightfox.nvim",
 		config = function()
 			require("nightfox")
-			-- vim.cmd([[ colorscheme duskfox ]])
 		end,
 	},
 	{
@@ -145,13 +143,12 @@ local default_plugins = {
 		version = "*",
 		config = function()
 			require("horizon")
-			vim.cmd[[ colorscheme horizon ]]
 		end,
 	},
 	{
 		"nyoom-engineering/oxocarbon.nvim",
 		config = function()
-			require("moonbow")
+			require("oxocarbon")
 		end,
 	},
 	{

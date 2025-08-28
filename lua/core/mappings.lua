@@ -291,7 +291,7 @@ M.telescope = {
 M.bufferline = {
 	plugin = true,
 	n = {
-		["<leader>t"] = { "<cmd> BufferLinePick <CR>", "Pick a bufferline tab" },
+		["<S-t>"] = { "<cmd> BufferLinePick <CR>", "Pick a bufferline tab" },
 		["<Tab>"] = { "<cmd> BufferLineCycleNext <CR>", "Go to the next tab" },
 		["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR>", "Go to the previous tab" },
 	},

@@ -9,7 +9,6 @@ local options = {
 		"tsx",
 		"c",
 		"markdown",
-		"sql",
 		"java",
 		"json",
 		"xml",
