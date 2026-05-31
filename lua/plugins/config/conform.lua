@@ -13,15 +13,15 @@ local options = {
 		markdown = { "markdownlint" },
 		graphql = { "prettier" },
 		lua = { "stylua" },
-		go = { "gofumpt", "golines", { "goimports", "goimports-reviser" } },
+		go = { "gofumpt", "golines", "goimports", "goimports-reviser", stop_after_first = true },
 		rust = { "rustfmt" },
 		cpp = { "clang-format" },
 		c = { "clang-format" },
 		bash = { "shfmt" },
 		php = { "php-cs-fixer" },
-		latex = { "texlab", "plaintex", "bib" },
+		latex = { "texlab", "plaintex", "bib", stop_after_first = true },
 		-- run only the first available with double brackets
-		python = { { "isort", "black" } },
+		python = { "isort", "black", stop_after_first = true },
 	},
 	-- it was format_on_save but it was timeouting in my notebook
 	-- format_on_save = {

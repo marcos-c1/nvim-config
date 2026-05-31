@@ -9,6 +9,15 @@ local default_plugins = {
 		end,
 	},
 	{
+		"nvim-treesitter/nvim-treesitter-context",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("treesitter-context").setup({
+				-- Your optional context configurations here
+			})
+		end,
+	},
+	{
 		"stevearc/conform.nvim",
 		opts = function()
 			return require("plugins.config.conform")
@@ -267,19 +276,6 @@ local default_plugins = {
 		end,
 	},
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		version = "2.20.7",
-		--event = "User FilePost",
-		opts = function()
-			return require("plugins.config.others").blankline
-		end,
-		config = function(_, opts)
-			require("core.utils").load_mappings("blankline")
-			require("indent_blankline").setup(opts)
-		end,
-	},
-
 	-- color syntax treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -290,7 +286,23 @@ local default_plugins = {
 			return require("plugins.config.treesitter")
 		end,
 		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
+			require("nvim-treesitter").setup(opts)
+		end,
+	},
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		version = "2.20.7",
+		--event = "User FilePost",
+		opts = function()
+			return require("plugins.config.others").blankline
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- Forces Treesitter to load first
+		},
+		config = function(_, opts)
+			require("core.utils").load_mappings("blankline")
+			require("indent_blankline").setup(opts)
 		end,
 	},
 

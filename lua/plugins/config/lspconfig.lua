@@ -1,6 +1,7 @@
 local M = {}
 local utils = require("core.utils")
-local lsp = require("lspconfig")
+--local lsp = require("lspconfig")
+local lsp = vim.lsp
 
 -- export on_attach & capabilities for custom lspconfigs
 M.on_attach = function(client, bufnr)
@@ -55,7 +56,7 @@ M.capabilities.textDocument.completion.completionItem = {
 	},
 }
 
-lsp.lua_ls.setup({
+lsp.config("lua_ls", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
@@ -79,43 +80,43 @@ lsp.lua_ls.setup({
 	},
 })
 
-lsp.pyright.setup({
+lsp.config("pyright", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
 })
 
-lsp.tsserver.setup({
+lsp.config("ts_ls", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
 })
 
-lsp.rust_analyzer.setup({
+lsp.config("rust_analyzer", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
-	-- Server-specific settings. See `:help lspconfig-setup`
+	-- Server-specific settings. See `:help lspconfig.config`
 	settings = {
 		["rust-analyzer"] = {},
 	},
 })
 
-lsp.clangd.setup({
+lsp.config("clangd", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
-	-- Server-specific settings. See `:help lspconfig-setup`
+	-- Server-specific settings. See `:help lspconfig.config`
 	settings = {
 		["rust-analyzer"] = {},
 	},
 })
 
-lsp.gopls.setup({
+lsp.config("gopls", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
-	-- Server-specific settings. See `:help lspconfig-setup`
+	-- Server-specific settings. See `:help lspconfig.config`
 	settings = {
 		gopls = {
 			analyses = {
@@ -127,16 +128,16 @@ lsp.gopls.setup({
 	},
 })
 
-lsp.volar.setup({
+lsp.config("volar", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
 	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
 })
 
-lsp.emmet_language_server.setup({})
+lsp.config("emmet_language_server", {})
 
-lsp.texlab.setup({
+lsp.config("texlab", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
