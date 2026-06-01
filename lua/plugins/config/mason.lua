@@ -29,7 +29,7 @@ local options = {
 		"isort",
 		"black",
 		"clang-format",
-		"php-cs-fixer",
+		"phpactor",
 		"latexindent",
 	}, -- not an option from mason.nvim
 

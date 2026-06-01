@@ -102,13 +102,30 @@ lsp.config("rust_analyzer", {
 	},
 })
 
+lsp.config("phpactor", {
+	on_init = M.on_init,
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	-- Server-specific settings. See `:help lspconfig.config`
+	settings = {
+		cmd = { "phpactor", "language-server" },
+		filetypes = { "php" },
+		root_markers = { ".git", "composer.json", ".phpactor.json", ".phpactor.yml" },
+		workspace_required = true,
+		init_options = {
+			["language_server_phpstan.enabled"] = false,
+			["language_server_psalm.enabled"] = false,
+		},
+	},
+})
+
 lsp.config("clangd", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
 	-- Server-specific settings. See `:help lspconfig.config`
 	settings = {
-		["rust-analyzer"] = {},
+		["clangd"] = {},
 	},
 })
 

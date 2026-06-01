@@ -18,23 +18,23 @@ local options = {
 		cpp = { "clang-format" },
 		c = { "clang-format" },
 		bash = { "shfmt" },
-		php = { "php-cs-fixer" },
-		latex = { "texlab", "plaintex", "bib", stop_after_first = true },
+		php = { "phpactor" },
+		latex = { "texlab", "bibtex-tidy", stop_after_first = true },
 		-- run only the first available with double brackets
 		python = { "isort", "black", stop_after_first = true },
 	},
 	-- it was format_on_save but it was timeouting in my notebook
-	-- format_on_save = {
-	--   timeout_ms = 500,
-	--   lsp_format = "fallback",
-	--   async = false,
-	-- },
-
-	format_after_save = {
+	format_on_save = {
 		timeout_ms = 500,
 		lsp_format = "fallback",
-		async = true,
+		async = false,
 	},
+
+	-- format_after_save = {
+	-- 	timeout_ms = 500,
+	-- 	lsp_format = "fallback",
+	-- 	async = true,
+	-- },
 }
 
 return options
