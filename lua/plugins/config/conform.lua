@@ -13,28 +13,28 @@ local options = {
 		markdown = { "markdownlint" },
 		graphql = { "prettier" },
 		lua = { "stylua" },
-		go = { "gofumpt", "golines", "goimports", "goimports-reviser", stop_after_first = true },
+		go = { { "gofumpt", "golines", "goimports", "goimports-reviser" } },
 		rust = { "rustfmt" },
 		cpp = { "clang-format" },
 		c = { "clang-format" },
 		bash = { "shfmt" },
 		php = { "phpactor" },
-		latex = { "texlab", "bibtex-tidy", stop_after_first = true },
+		latex = { "latexindent" },
 		-- run only the first available with double brackets
-		python = { "isort", "black", stop_after_first = true },
+		python = { { "isort", "black" } },
 	},
 	-- it was format_on_save but it was timeouting in my notebook
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_format = "fallback",
-		async = false,
-	},
-
-	-- format_after_save = {
+	-- format_on_save = {
 	-- 	timeout_ms = 500,
 	-- 	lsp_format = "fallback",
-	-- 	async = true,
+	-- 	async = false,
 	-- },
+
+	format_after_save = {
+		timeout_ms = 500,
+		lsp_format = "fallback",
+		async = true,
+	},
 }
 
 return options

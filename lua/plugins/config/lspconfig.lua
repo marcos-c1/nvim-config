@@ -107,10 +107,11 @@ lsp.config("phpactor", {
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
 	-- Server-specific settings. See `:help lspconfig.config`
+	cmd = { "phpactor", "language-server" },
+	filetypes = { "php" },
+	root_markers = { ".git", "composer.json", ".phpactor.json", ".phpactor.yml" },
+
 	settings = {
-		cmd = { "phpactor", "language-server" },
-		filetypes = { "php" },
-		root_markers = { ".git", "composer.json", ".phpactor.json", ".phpactor.yml" },
 		workspace_required = true,
 		init_options = {
 			["language_server_phpstan.enabled"] = false,
@@ -154,6 +155,16 @@ lsp.config("volar", {
 
 lsp.config("emmet_language_server", {})
 
+lsp.config("quick_lint_js", {
+	on_init = M.on_init,
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	autostart = true,
+	cmd = { "quick-lint-js", "--lsp-server" },
+	filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+	root_markers = { "package.json", "jsconfig.json", "tsconfig.json", ".git" },
+})
+
 lsp.config("texlab", {
 	on_init = M.on_init,
 	on_attach = M.on_attach,
@@ -184,4 +195,17 @@ lsp.config("texlab", {
 	},
 })
 
+vim.lsp.enable({
+	"lua_ls",
+	"pyright",
+	"ts_ls",
+	"rust_analyzer",
+	"phpactor",
+	"clangd",
+	"gopls",
+	"volar",
+	"emmet_language_server",
+	"quick_lint_js",
+	"texlab",
+})
 return M
