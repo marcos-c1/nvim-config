@@ -22,6 +22,7 @@ local options = {
 		latex = { "latexindent" },
 		-- run only the first available with double brackets
 		python = { { "isort", "black" } },
+		xml = { "xmlformat" },
 	},
 	-- it was format_on_save but it was timeouting in my notebook
 	-- format_on_save = {

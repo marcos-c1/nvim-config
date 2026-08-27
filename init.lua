@@ -12,4 +12,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("plugins")
 
-vim.cmd([[ colorscheme gruvbox ]])
+vim.cmd([[ colorscheme catppuccin-mocha ]])
