@@ -195,6 +195,15 @@ lsp.config("texlab", {
 	},
 })
 
+lsp.config("ast_grep", {
+	on_init = M.on_init,
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	cmd = { "ast-grep", "lsp" },
+	filetypes = { "rust" },
+	root_markers = { "sgconfig.yml", "sgconfig.yaml" },
+})
+
 vim.lsp.enable({
 	"lua_ls",
 	"pyright",
@@ -207,5 +216,6 @@ vim.lsp.enable({
 	"emmet_language_server",
 	"quick_lint_js",
 	"texlab",
+	"ast_grep",
 })
 return M

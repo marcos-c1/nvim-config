@@ -15,13 +15,16 @@ local options = {
 		"svelte-language-server",
 		"texlab",
 
+		-- linters
+		"ast-grep",
+		"markdownlint",
+
 		-- formatters
 		"stylua",
 		"gofumpt",
 		"goimports",
 		"goimports-reviser",
 		"golines",
-		"markdownlint",
 		"prettier",
 		"rustfmt",
 		"shfmt",
@@ -31,6 +34,7 @@ local options = {
 		"clang-format",
 		"phpactor",
 		"latexindent",
+		"xmlformatter",
 	}, -- not an option from mason.nvim
 
 	PATH = "skip",

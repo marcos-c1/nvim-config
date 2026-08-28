@@ -13,7 +13,7 @@ local options = {
 		markdown = { "markdownlint" },
 		graphql = { "prettier" },
 		lua = { "stylua" },
-		go = { { "gofumpt", "golines", "goimports", "goimports-reviser" } },
+		go = { "gofumpt", "golines", "goimports", "goimports-reviser", stop_after_first = true },
 		rust = { "rustfmt" },
 		cpp = { "clang-format" },
 		c = { "clang-format" },
@@ -21,7 +21,7 @@ local options = {
 		php = { "phpactor" },
 		latex = { "latexindent" },
 		-- run only the first available with double brackets
-		python = { { "isort", "black" } },
+		python = { "isort", "black", stop_after_first = true },
 		xml = { "xmlformat" },
 	},
 	-- it was format_on_save but it was timeouting in my notebook
